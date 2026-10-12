@@ -1,0 +1,10 @@
+Memory method: sampled process RSS using psutil.
+Each model and phase ran in a fresh Python process.
+Training: one fit call, including its temporary allocations.
+Inference: one warm-up followed by 100 single-sample predictions.
+Inference excludes model loading and releases unused dataset arrays.
+Requested sampling interval: 1 ms; actual scheduling may vary.
+Brief memory peaks may be missed between samples.
+RSS includes Python, imported libraries (including PyTorch), the model, and other live process allocations.
+The observed increase is not the total memory requirement.
+Units: 1 MB = 1000000 bytes.

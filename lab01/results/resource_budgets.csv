@@ -1,0 +1,5 @@
+environment,memory_budget,max_latency_ms,max_model_size
+Cloud,>= 1 GB,100,500 MB
+Edge,256-1024 MB,50,50 MB
+Mobile,64-256 MB,20,10 MB
+TinyML,<= 256 KB,10,100 KB

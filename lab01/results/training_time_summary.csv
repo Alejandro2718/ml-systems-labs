@@ -1,0 +1,3 @@
+model,training_median_ms,measured_runs,warmup_runs
+LogisticRegression,718.423400,5,1
+RandomForestClassifier,178.573500,5,1

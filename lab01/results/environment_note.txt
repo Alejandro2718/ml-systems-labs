@@ -1,0 +1,11 @@
+Environment setup note
+
+The original requirements.txt could not be installed because
+mlflow==2.14.1 requires pyarrow>=4.0.0,<16, while the lab manual
+specifies pyarrow==16.1.0.
+
+A temporary requirements-lab01.txt was created by excluding only
+mlflow==2.14.1 and preserving all other requested package versions.
+
+MLflow is not used by the Lab 1 experiments. Full compliance with
+the original package list remains pending instructor clarification.

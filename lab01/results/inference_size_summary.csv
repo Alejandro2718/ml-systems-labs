@@ -1,0 +1,3 @@
+model,accuracy,inference_median_ms,measured_runs,warmup_runs,model_size_bytes,model_size_KB,model_file
+LogisticRegression,0.941520468,0.062650000,100,1,1055,1.055000000,LogisticRegression/model.joblib
+RandomForestClassifier,0.935672515,3.140700000,100,1,290889,290.889000000,RandomForestClassifier/model.joblib

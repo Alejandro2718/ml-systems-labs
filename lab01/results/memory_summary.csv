@@ -1,0 +1,5 @@
+model,phase,baseline_RSS_MB,peak_RSS_bytes,peak_RSS_MB,observed_increase_MB,rss_samples
+LogisticRegression,training,240.410624,240967680,240.96768,0.557056,70
+LogisticRegression,inference,240.852992,240951296,240.951296,0.098304,3
+RandomForestClassifier,training,240.14848,240865280,240.86528,0.7168,19
+RandomForestClassifier,inference,242.065408,242176000,242.176,0.110592,22

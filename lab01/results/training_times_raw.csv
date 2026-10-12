@@ -1,0 +1,11 @@
+model,run,training_ms
+LogisticRegression,1,655.395600
+LogisticRegression,2,726.627600
+LogisticRegression,3,681.433700
+LogisticRegression,4,721.773800
+LogisticRegression,5,718.423400
+RandomForestClassifier,1,172.753400
+RandomForestClassifier,2,188.135400
+RandomForestClassifier,3,168.119300
+RandomForestClassifier,4,178.573500
+RandomForestClassifier,5,191.329400

@@ -1,0 +1,34 @@
+{
+  "dataset": "sklearn.datasets.load_digits",
+  "total_samples": 1797,
+  "features": 64,
+  "classes": 10,
+  "training_samples": 1257,
+  "test_samples": 540,
+  "scaling": "Pixel values divided by 16",
+  "split": "70/30 stratified, random_state=42",
+  "training_class_counts": [
+    124,
+    127,
+    124,
+    128,
+    127,
+    127,
+    127,
+    125,
+    122,
+    126
+  ],
+  "test_class_counts": [
+    54,
+    55,
+    53,
+    55,
+    54,
+    55,
+    54,
+    54,
+    52,
+    54
+  ]
+}

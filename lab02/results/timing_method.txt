@@ -1,0 +1,17 @@
+Platform: Windows-10-10.0.26200-SP0
+Python: 3.11.8
+NumPy: 1.26.4
+Input dtype: float64
+Batch size: 32
+Data: first 32 training samples from the fixed split.
+Execution: NumPy on CPU, using default library threading.
+Models: saved parameters after 50 training epochs.
+One warm-up per operation, followed by 100 measured runs.
+Forward and backward were timed separately in each run.
+Reported statistic: median milliseconds per batch.
+Forward includes probabilities and intermediate cache creation.
+Backward uses a fixed precomputed cache for the same model and batch; it includes the loss gradient calculation.
+Model loading, data preparation, scalar loss evaluation, weight updates, printing, and file saving are excluded.
+Returned outputs are released outside the timed intervals.
+Parameters remain unchanged during measurement.
+These are repeated in-process measurements; cache effects and operating-system scheduling can affect the results.

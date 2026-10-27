@@ -76,6 +76,6 @@ However, forward also calculates softmax, and both operations create intermediat
 Sources: Lab Manual, global rules and Lab 2; Vijay Janapa Reddi, Introduction to Machine Learning Systems. The manual lists Chapter 3 topics; the corresponding topics in the supplied edition are in Chapter 5, sections 5.3-5.5.
 
 
-## Hand written
+## Handwritten calculations
 
-![Calculations](results/lab2.pdf)
+[Handwritten calculations (PDF)](results/lab2.pdf)

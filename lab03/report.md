@@ -42,7 +42,7 @@ The representative-layer calculations use one image:
 | Conv2d 1->16, 3x3, output 28x28 | 225,792 | 112,896 | 225,792 |
 | Self-attention, 16 tokens, dimension 64, 4 heads | 589,824 | 294,912 | 589,824 |
 
-Linear costs 2 x 784 x 256 = 401,408 FLOPs. The first convolution costs 2 x 3 x 3 x 1 x 16 x 28 x 28 = 225,792 FLOPs. One self-attention module costs 393,216 FLOPs for QKV projections, 32,768 for QK transpose, 32,768 for attention times V and 131,072 for the output projection: 589,824 in total. This excludes the encoder's separate feed-forward layers. The handwritten sheets will provide the calculation steps.
+Linear costs 2 x 784 x 256 = 401,408 FLOPs. The first convolution costs 2 x 3 x 3 x 1 x 16 x 28 x 28 = 225,792 FLOPs. One self-attention module costs 393,216 FLOPs for QKV projections, 32,768 for QK transpose, 32,768 for attention times V and 131,072 for the output projection: 589,824 in total. This excludes the encoder's separate feed-forward layers. The handwritten sheets include the calculation steps.
 
 | Model | Default THOP operation estimate | Adjusted matrix MACs | Adjusted matrix FLOPs |
 |---|---:|---:|---:|
@@ -68,6 +68,6 @@ For this experiment, the CNN offers the best accuracy/parameter trade-off, while
 
 Sources: supplied Lab Manual, global rules and Lab 3; Vijay Janapa Reddi, Introduction to Machine Learning Systems, Chapter 4, sections 4.2, 4.3, 4.5, 4.6 and 4.7; installed PyTorch 2.3.1 and THOP source code.
 
-## Hand written
+## Handwritten calculations
 
-![Calculations](results/lab3.pdf)
+[Handwritten calculations (PDF)](results/lab3.pdf)

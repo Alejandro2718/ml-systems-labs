@@ -1,0 +1,162 @@
+dataset:
+  name: adult
+  version: 2
+  openml_id: 1590
+  target: class
+  schema_target: income
+  positive_label: '>50K'
+  rows: 48842
+  columns: 15
+seed: 42
+split:
+  test_size: 0.3
+  strategy: stratified_feature_groups
+  duplicates: exact_train_only
+preprocessing:
+  clip_quantiles:
+  - 0.01
+  - 0.99
+  derived_features:
+  - capital_net
+  - hours_per_age
+model:
+  solver: liblinear
+  C: 1.0
+  max_iter: 1000
+manual_sample_size: 50
+schema:
+  numeric:
+    age:
+    - 17
+    - 90
+    fnlwgt: null
+    education-num: null
+    capital-gain:
+    - 0
+    - 99999
+    capital-loss:
+    - 0
+    - 4356
+    hours-per-week:
+    - 1
+    - 99
+  categorical:
+    workclass:
+    - Private
+    - Self-emp-not-inc
+    - Self-emp-inc
+    - Federal-gov
+    - Local-gov
+    - State-gov
+    - Without-pay
+    - Never-worked
+    - '?'
+    education:
+    - Bachelors
+    - Some-college
+    - 11th
+    - HS-grad
+    - Prof-school
+    - Assoc-acdm
+    - Assoc-voc
+    - 9th
+    - 7th-8th
+    - 12th
+    - Masters
+    - 1st-4th
+    - 10th
+    - Doctorate
+    - 5th-6th
+    - Preschool
+    - '?'
+    marital-status:
+    - Married-civ-spouse
+    - Divorced
+    - Never-married
+    - Separated
+    - Widowed
+    - Married-spouse-absent
+    - Married-AF-spouse
+    - '?'
+    occupation:
+    - Tech-support
+    - Craft-repair
+    - Other-service
+    - Sales
+    - Exec-managerial
+    - Prof-specialty
+    - Handlers-cleaners
+    - Machine-op-inspct
+    - Adm-clerical
+    - Farming-fishing
+    - Transport-moving
+    - Priv-house-serv
+    - Protective-serv
+    - Armed-Forces
+    - '?'
+    relationship:
+    - Wife
+    - Own-child
+    - Husband
+    - Not-in-family
+    - Other-relative
+    - Unmarried
+    - '?'
+    race:
+    - White
+    - Asian-Pac-Islander
+    - Amer-Indian-Eskimo
+    - Other
+    - Black
+    - '?'
+    sex:
+    - Female
+    - Male
+    - '?'
+    native-country:
+    - United-States
+    - Cambodia
+    - England
+    - Puerto-Rico
+    - Canada
+    - Germany
+    - Outlying-US(Guam-USVI-etc)
+    - India
+    - Japan
+    - Greece
+    - South
+    - China
+    - Cuba
+    - Iran
+    - Honduras
+    - Philippines
+    - Italy
+    - Poland
+    - Jamaica
+    - Vietnam
+    - Mexico
+    - Portugal
+    - Ireland
+    - France
+    - Dominican-Republic
+    - Laos
+    - Ecuador
+    - Taiwan
+    - Haiti
+    - Columbia
+    - Hungary
+    - Guatemala
+    - Nicaragua
+    - Scotland
+    - Thailand
+    - Yugoslavia
+    - El-Salvador
+    - Trinadad&Tobago
+    - Peru
+    - Hong
+    - Holand-Netherlands
+    - '?'
+    income:
+    - <=50K
+    - '>50K'
+    - '?'

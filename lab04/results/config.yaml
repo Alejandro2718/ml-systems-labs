@@ -1,0 +1,372 @@
+dataset:
+  name: adult
+  version: 2
+  openml_id: 1590
+  target: class
+  schema_target: income
+  positive_label: '>50K'
+  rows: 48842
+  columns: 15
+seed: 42
+split:
+  test_size: 0.3
+  strategy: stratified_feature_groups
+  duplicates: exact_train_only
+preprocessing:
+  clip_quantiles:
+  - 0.01
+  - 0.99
+  derived_features:
+  - capital_net
+  - hours_per_age
+model:
+  solver: liblinear
+  C: 1.0
+  max_iter: 1000
+manual_sample_size: 50
+schema:
+  numeric:
+    age:
+    - 17
+    - 90
+    fnlwgt: null
+    education-num: null
+    capital-gain:
+    - 0
+    - 99999
+    capital-loss:
+    - 0
+    - 4356
+    hours-per-week:
+    - 1
+    - 99
+  categorical:
+    workclass:
+    - Private
+    - Self-emp-not-inc
+    - Self-emp-inc
+    - Federal-gov
+    - Local-gov
+    - State-gov
+    - Without-pay
+    - Never-worked
+    - '?'
+    education:
+    - Bachelors
+    - Some-college
+    - 11th
+    - HS-grad
+    - Prof-school
+    - Assoc-acdm
+    - Assoc-voc
+    - 9th
+    - 7th-8th
+    - 12th
+    - Masters
+    - 1st-4th
+    - 10th
+    - Doctorate
+    - 5th-6th
+    - Preschool
+    - '?'
+    marital-status:
+    - Married-civ-spouse
+    - Divorced
+    - Never-married
+    - Separated
+    - Widowed
+    - Married-spouse-absent
+    - Married-AF-spouse
+    - '?'
+    occupation:
+    - Tech-support
+    - Craft-repair
+    - Other-service
+    - Sales
+    - Exec-managerial
+    - Prof-specialty
+    - Handlers-cleaners
+    - Machine-op-inspct
+    - Adm-clerical
+    - Farming-fishing
+    - Transport-moving
+    - Priv-house-serv
+    - Protective-serv
+    - Armed-Forces
+    - '?'
+    relationship:
+    - Wife
+    - Own-child
+    - Husband
+    - Not-in-family
+    - Other-relative
+    - Unmarried
+    - '?'
+    race:
+    - White
+    - Asian-Pac-Islander
+    - Amer-Indian-Eskimo
+    - Other
+    - Black
+    - '?'
+    sex:
+    - Female
+    - Male
+    - '?'
+    native-country:
+    - United-States
+    - Cambodia
+    - England
+    - Puerto-Rico
+    - Canada
+    - Germany
+    - Outlying-US(Guam-USVI-etc)
+    - India
+    - Japan
+    - Greece
+    - South
+    - China
+    - Cuba
+    - Iran
+    - Honduras
+    - Philippines
+    - Italy
+    - Poland
+    - Jamaica
+    - Vietnam
+    - Mexico
+    - Portugal
+    - Ireland
+    - France
+    - Dominican-Republic
+    - Laos
+    - Ecuador
+    - Taiwan
+    - Haiti
+    - Columbia
+    - Hungary
+    - Guatemala
+    - Nicaragua
+    - Scotland
+    - Thailand
+    - Yugoslavia
+    - El-Salvador
+    - Trinadad&Tobago
+    - Peru
+    - Hong
+    - Holand-Netherlands
+    - '?'
+    income:
+    - <=50K
+    - '>50K'
+    - '?'
+run:
+  raw_rows: 48842
+  raw_columns: 15
+  raw_frame_sha256: 1c13ef934cd365aa53a6b2be8c4ea2d2c3fb3a0a4285ae9bd4f74936d32989ec
+  openml_id: 1590
+  openml_md5: bb6510925e5d4b23d136715febb2cdf5
+  initial_train_rows: 34189
+  final_train_rows: 34155
+  test_rows: 14653
+  raw_exact_duplicates: 52
+  conflict_groups: 5
+  conflicting_rows: 10
+  removed_training_rows:
+  - source_row: 46665
+    reason: exact_duplicate_within_train
+  - source_row: 44803
+    reason: exact_duplicate_within_train
+  - source_row: 29365
+    reason: exact_duplicate_within_train
+  - source_row: 38775
+    reason: exact_duplicate_within_train
+  - source_row: 11212
+    reason: exact_duplicate_within_train
+  - source_row: 14308
+    reason: exact_duplicate_within_train
+  - source_row: 14838
+    reason: exact_duplicate_within_train
+  - source_row: 31340
+    reason: exact_duplicate_within_train
+  - source_row: 37384
+    reason: exact_duplicate_within_train
+  - source_row: 46626
+    reason: exact_duplicate_within_train
+  - source_row: 45438
+    reason: exact_duplicate_within_train
+  - source_row: 14153
+    reason: exact_duplicate_within_train
+  - source_row: 15960
+    reason: exact_duplicate_within_train
+  - source_row: 12488
+    reason: exact_duplicate_within_train
+  - source_row: 1319
+    reason: exact_duplicate_within_train
+  - source_row: 6456
+    reason: exact_duplicate_within_train
+  - source_row: 10923
+    reason: exact_duplicate_within_train
+  - source_row: 42594
+    reason: exact_duplicate_within_train
+  - source_row: 40948
+    reason: exact_duplicate_within_train
+  - source_row: 488
+    reason: exact_duplicate_within_train
+  - source_row: 6432
+    reason: exact_duplicate_within_train
+  - source_row: 33256
+    reason: exact_duplicate_within_train
+  - source_row: 20606
+    reason: exact_duplicate_within_train
+  - source_row: 20198
+    reason: exact_duplicate_within_train
+  - source_row: 38648
+    reason: exact_duplicate_within_train
+  - source_row: 15323
+    reason: exact_duplicate_within_train
+  - source_row: 38581
+    reason: exact_duplicate_within_train
+  - source_row: 13848
+    reason: exact_duplicate_within_train
+  - source_row: 28246
+    reason: exact_duplicate_within_train
+  - source_row: 44511
+    reason: exact_duplicate_within_train
+  - source_row: 34148
+    reason: exact_duplicate_within_train
+  - source_row: 33321
+    reason: exact_duplicate_within_train
+  - source_row: 8116
+    reason: exact_duplicate_within_train
+  - source_row: 25189
+    reason: exact_duplicate_within_train
+  manual_review:
+    pending: 50
+  processed_dataset:
+    path: data/lab04/processed.csv
+    rows: 48808
+    columns:
+    - source_row
+    - split
+    - age
+    - fnlwgt
+    - education-num
+    - capital-gain
+    - capital-loss
+    - hours-per-week
+    - capital_net
+    - hours_per_age
+    - workclass
+    - education
+    - marital-status
+    - occupation
+    - relationship
+    - race
+    - sex
+    - native-country
+    - income
+    sha256: df5fb23892d890d325fb5eab85fc568e83b7d9c7d2ba7f25931c74d27221ae80
+    format: CSV UTF-8, LF, index excluded, floats %.17g, split/source_row order
+  clipping_bounds:
+    age:
+    - 17.0
+    - 74.0
+    fnlwgt:
+    - 27319.58
+    - 509738.0199999998
+    education-num:
+    - 3.0
+    - 16.0
+    capital-gain:
+    - 0.0
+    - 15024.0
+    capital-loss:
+    - 0.0
+    - 1980.0
+    hours-per-week:
+    - 8.0
+    - 80.0
+  clipping_counts:
+  - split: train
+    feature: age
+    below: 0
+    above: 304
+  - split: train
+    feature: fnlwgt
+    below: 342
+    above: 342
+  - split: train
+    feature: education-num
+    below: 227
+    above: 0
+  - split: train
+    feature: capital-gain
+    below: 0
+    above: 264
+  - split: train
+    feature: capital-loss
+    below: 0
+    above: 327
+  - split: train
+    feature: hours-per-week
+    below: 330
+    above: 216
+  - split: test
+    feature: age
+    below: 0
+    above: 141
+  - split: test
+    feature: fnlwgt
+    below: 166
+    above: 144
+  - split: test
+    feature: education-num
+    below: 99
+    above: 0
+  - split: test
+    feature: capital-gain
+    below: 0
+    above: 127
+  - split: test
+    feature: capital-loss
+    below: 0
+    above: 164
+  - split: test
+    feature: hours-per-week
+    below: 125
+    above: 102
+  categorical_modes:
+    workclass: Private
+    education: HS-grad
+    marital-status: Married-civ-spouse
+    occupation: Prof-specialty
+    relationship: Husband
+    race: White
+    sex: Male
+    native-country: United-States
+  numeric_medians:
+    age: 37.0
+    fnlwgt: 178517.0
+    education-num: 10.0
+    capital-gain: 0.0
+    capital-loss: 0.0
+    hours-per-week: 40.0
+  preprocessing_settings:
+    numeric_imputation: median
+    categorical_imputation: most_frequent
+    quantile_method: linear
+    scale_numeric: true
+    unknown_categories: ignore
+    saved_transformer: with_derived_features
+  package_versions:
+    numpy: 1.26.4
+    pandas: 2.2.2
+    scipy: 1.13.1
+    scikit-learn: 1.5.0
+    joblib: 1.4.2
+    PyYAML: 6.0.3
+  python: 3.11.8
+  raw_unchanged: true
+  test_rows_unchanged: true
+  cross_split_feature_duplicates_after_cleaning: 0

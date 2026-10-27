@@ -16,7 +16,7 @@ I implemented the manual's explicit architectures:
 - CNN: Conv2d 1->16, ReLU, MaxPool2, Conv2d 16->32, ReLU, MaxPool2, Flatten, Linear 1568->10. Both convolutions use 3x3 kernels and padding 1.
 - Attention: sixteen 7x7 patches, Linear 49->64, two Transformer encoder layers with d_model=64, four heads and feed-forward width 128, mean pooling, Linear 64->10. The encoders use default ReLU, dropout 0.1 and post-normalization. No positional encoding is added.
 
-The manual also gives a target of 100k-150k parameters. The explicit layers instead produce 235,146, 20,490 and 70,794 parameters. I followed the specified layers, so this comparison does not use an equal parameter budget.
+The manual also gives a target of 100k-150k parameters. The explicit layers instead produce 235,146, 20,490 and 70,794 parameters. These two requirements cannot be met at the same time. I kept the specified layers, so this comparison does not use an equal parameter budget.
 
 Each model trained for five epochs with Adam, learning rate 0.001, batch size 128 and cross-entropy on logits. The final batch had 88 images. I used seed 42 for Python, NumPy, PyTorch and CUDA, enabled deterministic algorithms and used the same training shuffle sequence. Validation was evaluated after each epoch. Test accuracy comes from epoch 5.
 

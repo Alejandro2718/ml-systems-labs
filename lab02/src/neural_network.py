@@ -7,10 +7,8 @@ from prepare_data import prepare_data
 
 
 def initialize_parameters(width, seed=42):
-    """Create the weights and biases for two hidden layers."""
     rng = np.random.default_rng(seed)
 
-    # Interpret N(0, 0.01) as mean 0 and variance 0.01.
     weight_std = np.sqrt(0.01)
 
     parameters = {
@@ -26,28 +24,22 @@ def initialize_parameters(width, seed=42):
 
 
 def relu(Z):
-    """Keep positive values and replace negative values with zero."""
     return np.maximum(0.0, Z)
 
 
 def forward(X, parameters):
-    """Compute class probabilities and save values for backpropagation."""
     W1, b1 = parameters["W1"], parameters["b1"]
     W2, b2 = parameters["W2"], parameters["b2"]
     W3, b3 = parameters["W3"], parameters["b3"]
 
-    # First hidden layer.
     Z1 = X @ W1 + b1
     A1 = relu(Z1)
 
-    # Second hidden layer.
     Z2 = A1 @ W2 + b2
     A2 = relu(Z2)
 
-    # Output scores, also called logits.
     Z3 = A2 @ W3 + b3
 
-    # Stable log-softmax and softmax.
     shifted = Z3 - np.max(Z3, axis=1, keepdims=True)
     log_probs = shifted - np.log(
         np.sum(np.exp(shifted), axis=1, keepdims=True)
@@ -69,14 +61,12 @@ def forward(X, parameters):
 
 
 def cross_entropy(log_probs, Y):
-    """Return mean cross-entropy for one-hot targets."""
     return float(-np.mean(np.sum(Y * log_probs, axis=1)))
 
 
 def main():
     X_train, _, _, _, Y_train, _ = prepare_data()
 
-    # Use training data for these checks, keeping test data separate.
     X_batch = X_train[:32]
     Y_batch = Y_train[:32]
 
@@ -108,8 +98,6 @@ def main():
         assert row_sum_error <= 1e-6
         assert np.isfinite(loss)
 
-        # Practical tolerance for the manual's "about ln(10)" check.
-        # This tolerance is our sanity check, not a specified lab threshold.
         assert abs(loss - reference_loss) < 0.1
 
         rows.append({

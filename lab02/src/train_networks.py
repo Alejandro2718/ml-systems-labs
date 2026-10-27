@@ -28,7 +28,6 @@ def save_csv(path, rows):
 
 
 def train_one(width, learning_rate, X_train, Y_train, y_train):
-    # Reset initialization and shuffle order for each experiment.
     parameters = initialize_parameters(width, seed=SEED)
     shuffle_rng = np.random.default_rng(SEED)
     history = []
@@ -44,11 +43,9 @@ def train_one(width, learning_rate, X_train, Y_train, y_train):
             _, cache = forward(X_batch, parameters)
             gradients = backward(parameters, cache, Y_batch)
 
-            # Mini-batch gradient descent, without momentum.
             for name in parameters:
                 parameters[name] -= learning_rate * gradients[name]
 
-        # Evaluate the entire training set after the epoch's updates.
         probabilities, cache = forward(X_train, parameters)
         train_loss = cross_entropy(cache["log_probs"], Y_train)
         train_accuracy = float(
@@ -140,7 +137,6 @@ def main():
                 y_train,
             )
 
-            # Evaluate test accuracy only after all 50 epochs.
             test_probabilities, _ = forward(X_test, parameters)
             test_predictions = test_probabilities.argmax(axis=1)
             test_accuracy = float(
@@ -169,7 +165,6 @@ def main():
                 ).as_posix(),
             })
 
-            # Save completed experiments progressively.
             save_csv(RESULTS / "training_history.csv", all_history)
             save_csv(RESULTS / "training_summary.csv", summary)
 

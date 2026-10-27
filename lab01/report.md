@@ -20,7 +20,7 @@ I measured the following:
 
 - Inference time: After one warm-up, I timed 100 separate predictions using the same single test sample and reported the median. Training and model loading were outside this timer.
 
-- Model size: I saved each model with joblib.dump, without compression, and measured its size in bytes and KB. Each model has its own results subfolder containing model.joblib.
+- Model size: I saved each model with joblib.dump, without compression, and measured its size in bytes and KB. Each model has its own results subfolder containing model.joblib. Both models are also stored by name in results/model.joblib. The comparison uses each model's individual file size.
 
 - Memory: I used psutil to sample process RSS during training and inference, requesting a sample every 1 ms. Each model and phase ran in a fresh process. Training covered one fit; inference covered 100 predictions after loading the model and warming up. I reported the highest observed RSS.
 

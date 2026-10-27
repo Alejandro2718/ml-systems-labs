@@ -74,6 +74,6 @@ Clipping counts refer to values after train-fitted imputation and before clippin
 
 The sample uses random_state=42 and contains 50 distinct source row IDs from the raw dataset. The source_row field is the zero-based OpenML row index. Missing values are displayed as ?.
 
-Review status: 50 valid, 0 issue, 0 pending.
+Review status: 0 valid, 0 issue, 50 pending.
 
-The original records in [manual_review.csv](manual_review.csv) were checked individually against the UCI dictionary and the lab ranges. The check covered integer values, numeric ranges, allowed categories, education codes and missing markers. Three sampled records contain allowed missing markers; these are described in notes. No impossible values were found in the 50 records. The pipeline preserves the recorded review on later runs.
+The personal review is recorded in [manual_review.csv](manual_review.csv). 50 of 50 sampled records still need personal review. Check integer values, numeric ranges, allowed categories, education codes and missing markers against the dictionary. Record valid or issue in review_status and explain any issue in notes. Missing markers are permitted and do not automatically indicate impossible values. The pipeline preserves review entries on later runs.

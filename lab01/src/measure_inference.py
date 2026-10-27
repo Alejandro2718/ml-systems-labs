@@ -49,6 +49,7 @@ sample = X_test[:1]
 raw_results = []
 summary = []
 warning_log = []
+saved_models = {}
 
 for name, factory in factories.items():
     print(f"\nPreparing {name}...", flush=True)
@@ -88,6 +89,7 @@ for name, factory in factories.items():
     model_path = model_dir / "model.joblib"
 
     joblib.dump(model, model_path, compress=0)
+    saved_models[name] = model
     size_bytes = model_path.stat().st_size
 
     size_kb = size_bytes / 1000
@@ -109,6 +111,8 @@ for name, factory in factories.items():
     print(f"Model saved to: {model_path}")
 
     del model
+
+joblib.dump(saved_models, results_dir / "model.joblib", compress=0)
 
 pd.DataFrame(raw_results).to_csv(
     results_dir / "inference_times_raw.csv",

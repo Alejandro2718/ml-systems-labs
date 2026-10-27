@@ -8,21 +8,17 @@ from neural_network import initialize_parameters, forward, cross_entropy
 
 
 def backward(parameters, cache, Y):
-    """Compute gradients of mean cross-entropy for all parameters."""
     batch_size = Y.shape[0]
 
-    # Output layer: combined softmax and cross-entropy derivative.
     dZ3 = (cache["probabilities"] - Y) / batch_size
     dW3 = cache["A2"].T @ dZ3
     db3 = dZ3.sum(axis=0)
 
-    # Second hidden layer.
     dA2 = dZ3 @ parameters["W3"].T
     dZ2 = dA2 * (cache["Z2"] > 0)
     dW2 = cache["A1"].T @ dZ2
     db2 = dZ2.sum(axis=0)
 
-    # First hidden layer.
     dA1 = dZ2 @ parameters["W2"].T
     dZ1 = dA1 * (cache["Z1"] > 0)
     dW1 = cache["X"].T @ dZ1
@@ -41,7 +37,6 @@ def backward(parameters, cache, Y):
 
 
 def check_gradients(width, X, Y):
-    """Check 10 randomly selected weights across all three layers."""
     parameters = initialize_parameters(width)
     _, cache = forward(X, parameters)
     gradients = backward(parameters, cache, Y)
@@ -55,8 +50,6 @@ def check_gradients(width, X, Y):
     rng = np.random.default_rng(42)
     rows = []
 
-    # Fixed allocation covers every weight matrix.
-    # Indices are random, without replacement within each matrix.
     for name, count in (("W1", 4), ("W2", 3), ("W3", 3)):
         selected = rng.choice(
             parameters[name].size,
@@ -80,13 +73,11 @@ def check_gradients(width, X, Y):
                 _, minus_cache = forward(X, parameters)
                 loss_minus = cross_entropy(minus_cache["log_probs"], Y)
             finally:
-                # Always restore the original weight.
                 parameters[name][index] = original
 
             numerical = (loss_plus - loss_minus) / (2 * epsilon)
             analytical = float(gradients[name][index])
 
-            # The denominator floor avoids division by zero.
             denominator = max(
                 1e-12,
                 abs(analytical) + abs(numerical),
@@ -94,7 +85,6 @@ def check_gradients(width, X, Y):
             relative_error = abs(analytical - numerical) / denominator
             passed = bool(relative_error < threshold)
 
-            # Crossing a ReLU boundary can affect finite differences.
             relu_boundary_crossed = any(
                 np.any(
                     (plus_cache[key] > 0) != (minus_cache[key] > 0)
@@ -155,7 +145,6 @@ def main():
     results_dir = Path(__file__).resolve().parents[1] / "results"
     results_dir.mkdir(parents=True, exist_ok=True)
 
-    # Save evidence even if a check fails.
     for filename, rows in (
         ("gradient_check.csv", all_rows),
         ("gradient_check_summary.csv", summaries),

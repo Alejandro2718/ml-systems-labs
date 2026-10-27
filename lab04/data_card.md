@@ -37,7 +37,7 @@ The split keeps identical feature groups together and preserves the exact class 
 
 The token ? denotes missing data, not an additional substantive category. OpenML has converted these markers to NaN. The label must be present. Source row IDs in the review and audit files use zero-based OpenML indexing.
 
-The 50-row check used the categories and lab ranges above and checked that numeric fields contain whole numbers. The UCI extraction condition requires fnlwgt > 1; education-num is an education-level code with observed values 1-16. The sampled education names and codes were consistent. Missing markers are handled by imputation and are not automatically impossible values.
+For the personal review, use the categories and lab ranges above and check that numeric fields contain whole numbers. The UCI extraction condition requires fnlwgt > 1; education-num is an education-level code with observed values 1-16. Compare education names with their codes. Missing markers are handled by imputation and are not automatically impossible values.
 
 ## Processing and reproducibility
 
@@ -63,4 +63,4 @@ The fields include income, race, sex, age, household information and country of 
 
 ## Manual review status
 
-50 valid, 0 issue, 0 pending. Each sampled record was checked against the dictionary and lab ranges. No impossible values were found; three records have allowed missing markers, noted in the review file. This check does not verify actual income against census records.
+0 valid, 0 issue, 50 pending. 50 of 50 sampled records still need personal review. Decisions and notes are stored in results/manual_review.csv. This check concerns impossible values against the dictionary, not verification of actual income against census records.

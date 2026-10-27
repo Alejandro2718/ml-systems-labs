@@ -12,7 +12,6 @@ from models import MODEL_NAMES, make_model
 
 
 def count_attention(module, inputs, output):
-    # QKV, output projection, QK^T and attention @ V.
     query = inputs[0]
     batch, length, width = query.shape
     macs = batch * (4 * length * width * width + 2 * length * length * width)
@@ -27,7 +26,6 @@ def measured_macs(model, inputs, custom=False):
     rules = None
     if custom:
         rules = {nn.MultiheadAttention: count_attention, nn.LayerNorm: ignore_ops}
-    # Disable fused attention so THOP hooks run.
     previous = torch.backends.mha.get_fastpath_enabled()
     torch.backends.mha.set_fastpath_enabled(False)
     try:

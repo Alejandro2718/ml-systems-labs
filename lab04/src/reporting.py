@@ -15,6 +15,8 @@ def write_reports(lab, frame, checks, metrics, result, config):
     statuses = result['manual_review']
     pending = statuses.get('pending', 0)
     review_text = f"{statuses.get('valid', 0)} valid, {statuses.get('issue', 0)} issue, {pending} pending"
+    review_note = (f'{pending} of {config["manual_sample_size"]} sampled records still need personal review.'
+                   if pending else 'All sampled records have a recorded review decision.')
     schema_rows = []
     for column in frame.columns:
         numeric = column in config['schema']['numeric']
@@ -69,7 +71,7 @@ The sample uses random_state={config['seed']} and contains 50 distinct source ro
 
 Review status: {review_text}.
 
-The original records in [manual_review.csv](manual_review.csv) were checked individually against the UCI dictionary and the lab ranges. The check covered integer values, numeric ranges, allowed categories, education codes and missing markers. Three sampled records contain allowed missing markers; these are described in notes. No impossible values were found in the 50 records. The pipeline preserves the recorded review on later runs.
+The personal review is recorded in [manual_review.csv](manual_review.csv). {review_note} Check integer values, numeric ranges, allowed categories, education codes and missing markers against the dictionary. Record valid or issue in review_status and explain any issue in notes. Missing markers are permitted and do not automatically indicate impossible values. The pipeline preserves review entries on later runs.
 '''
     (results / 'validation_report.md').write_text(validation, encoding='utf-8')
     metric_table = markdown_table(['Features','Input columns','Encoded columns','Test accuracy','Test F1 (>50K)'],
@@ -174,7 +176,7 @@ The split keeps identical feature groups together and preserves the exact class 
 
 The token ? denotes missing data, not an additional substantive category. OpenML has converted these markers to NaN. The label must be present. Source row IDs in the review and audit files use zero-based OpenML indexing.
 
-The 50-row check used the categories and lab ranges above and checked that numeric fields contain whole numbers. The UCI extraction condition requires fnlwgt > 1; education-num is an education-level code with observed values 1-16. The sampled education names and codes were consistent. Missing markers are handled by imputation and are not automatically impossible values.
+For the personal review, use the categories and lab ranges above and check that numeric fields contain whole numbers. The UCI extraction condition requires fnlwgt > 1; education-num is an education-level code with observed values 1-16. Compare education names with their codes. Missing markers are handled by imputation and are not automatically impossible values.
 
 ## Processing and reproducibility
 
@@ -200,6 +202,6 @@ The fields include income, race, sex, age, household information and country of 
 
 ## Manual review status
 
-{review_text}. Each sampled record was checked against the dictionary and lab ranges. No impossible values were found; three records have allowed missing markers, noted in the review file. This check does not verify actual income against census records.
+{review_text}. {review_note} Decisions and notes are stored in results/manual_review.csv. This check concerns impossible values against the dictionary, not verification of actual income against census records.
 '''
     (lab / 'data_card.md').write_text(card, encoding='utf-8')

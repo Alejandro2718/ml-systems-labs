@@ -40,9 +40,9 @@ Adding the two derived features increased the test F1 by 0.0087. This is one fix
 | Rows in conflicting groups | 10 |
 | Raw feature groups shared by training and test | 0 |
 | Cleaned feature groups shared by training and test | 4 |
-| Manual rows still pending | 0 |
+| Manual rows still pending | 50 |
 
-The detailed checks are in [validation_report.md](results/validation_report.md). The conflicting records are in [duplicate_conflicts.csv](results/duplicate_conflicts.csv). The 50-row manual review is in [manual_review.csv](results/manual_review.csv); current status: 50 valid, 0 issue, 0 pending. It remains separate from the automated checks.
+The detailed checks are in [validation_report.md](results/validation_report.md). The conflicting records are in [duplicate_conflicts.csv](results/duplicate_conflicts.csv). The 50-row manual review is in [manual_review.csv](results/manual_review.csv); current status: 0 valid, 0 issue, 50 pending. It remains separate from the automated checks.
 
 Processed dataset SHA256: `df5fb23892d890d325fb5eab85fc568e83b7d9c7d2ba7f25931c74d27221ae80`.
 

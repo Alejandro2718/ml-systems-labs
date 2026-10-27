@@ -9,17 +9,14 @@ from sklearn.model_selection import train_test_split
 
 
 def prepare_data():
-    # Apply the seeds required by the lab manual.
     random.seed(42)
     np.random.seed(42)
     torch.manual_seed(42)
     torch.cuda.manual_seed_all(42)
 
-    # Load the images and scale pixel values to [0, 1].
     X, y = load_digits(return_X_y=True)
     X = X.astype(np.float64) / 16.0
 
-    # Use the same stratified split for every experiment.
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
@@ -28,7 +25,6 @@ def prepare_data():
         random_state=42,
     )
 
-    # Convert integer labels to one-hot vectors.
     Y_train = np.eye(10, dtype=np.float64)[y_train]
     Y_test = np.eye(10, dtype=np.float64)[y_test]
 
@@ -38,7 +34,6 @@ def prepare_data():
 def main():
     X_train, X_test, y_train, y_test, Y_train, Y_test = prepare_data()
 
-    # Check the input and target formats before building the network.
     assert X_train.shape[1] == 64
     assert X_test.shape[1] == 64
     assert Y_train.shape == (len(y_train), 10)

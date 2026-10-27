@@ -42,15 +42,12 @@ def main():
         learning_rate = float(experiment["learning_rate"])
         model_path = RESULTS / experiment["model_file"]
 
-        # Model loading is outside all timed operations.
         with np.load(model_path, allow_pickle=False) as saved:
             parameters = {
                 name: saved[name].copy()
                 for name in ("W1", "b1", "W2", "b2", "W3", "b3")
             }
 
-        # One warm-up per operation.
-        # Keep this cache for the isolated backward measurements.
         warmup_probabilities, reference_cache = forward(
             X_batch, parameters
         )
@@ -69,7 +66,6 @@ def main():
             )
             forward_ms = (perf_counter_ns() - start) / 1_000_000
 
-            # Release returned outputs outside the timed interval.
             del probabilities, measured_cache
 
             start = perf_counter_ns()

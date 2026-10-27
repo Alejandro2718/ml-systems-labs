@@ -242,7 +242,7 @@ run:
   - source_row: 25189
     reason: exact_duplicate_within_train
   manual_review:
-    valid: 50
+    pending: 50
   processed_dataset:
     path: data/lab04/processed.csv
     rows: 48808

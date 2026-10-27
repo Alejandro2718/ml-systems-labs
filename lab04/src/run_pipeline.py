@@ -140,6 +140,13 @@ def main():
             clipping.append(dict(split=split_name, feature=column,
                                  below=int((imputed[:, i] < fitted.lower_[i]).sum()),
                                  above=int((imputed[:, i] > fitted.upper_[i]).sum())))
+    feature_columns = list(X_train.columns)
+    raw_partitions = pd.concat([train.assign(split='train'), test.assign(split='test')])
+    raw_overlap = int(raw_partitions.groupby(feature_columns, dropna=False, observed=True)
+                      ['split'].nunique().gt(1).sum())
+    cleaned_columns = feature_columns + config['preprocessing']['derived_features']
+    cleaned_overlap = int(processed.groupby(cleaned_columns, dropna=False, observed=True)
+                          ['split'].nunique().gt(1).sum())
     result = dict(raw_rows=len(raw), raw_columns=len(raw.columns), raw_frame_sha256=original_hash,
                   openml_id=int(adult.details['id']), openml_md5=adult.details['md5_checksum'],
                   initial_train_rows=initial_train, final_train_rows=len(train), test_rows=len(test),
@@ -161,7 +168,8 @@ def main():
                                               saved_transformer='with_derived_features'),
                   package_versions={name:version(name) for name in ['numpy','pandas','scipy','scikit-learn','joblib','PyYAML']},
                   python=platform.python_version(), raw_unchanged=True, test_rows_unchanged=True,
-                  cross_split_feature_duplicates_after_cleaning=0)
+                  cross_split_raw_feature_groups=raw_overlap,
+                  cross_split_cleaned_feature_groups=cleaned_overlap)
     resolved = dict(config)
     resolved['run'] = result
     (RESULTS / 'config.yaml').write_text(yaml.safe_dump(resolved, sort_keys=False, width=100), encoding='utf-8')

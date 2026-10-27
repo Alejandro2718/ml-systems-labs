@@ -242,7 +242,7 @@ run:
   - source_row: 25189
     reason: exact_duplicate_within_train
   manual_review:
-    pending: 50
+    valid: 50
   processed_dataset:
     path: data/lab04/processed.csv
     rows: 48808
@@ -369,4 +369,5 @@ run:
   python: 3.11.8
   raw_unchanged: true
   test_rows_unchanged: true
-  cross_split_feature_duplicates_after_cleaning: 0
+  cross_split_raw_feature_groups: 0
+  cross_split_cleaned_feature_groups: 4

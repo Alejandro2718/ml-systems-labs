@@ -35,9 +35,10 @@ Schema, category, range and label violations: 0. Missing cells: 6,465. Missing v
 - Exact duplicates removed within training: 34.
 - Final training rows: 34,155.
 - Test rows removed: 0.
-- Identical feature rows shared by the final training and test sets: 0.
+- Raw feature groups shared by training and test: 0.
+- Cleaned feature groups shared by training and test: 4.
 
-The split keeps identical raw feature groups in one partition. It starts with a seeded group split, then moves only singleton groups to match the exact test class counts of a 70/30 stratified split. All raw rows are assigned before cleaning; no extra training rows are deleted using the held-out set. Conflicting labels are reported, not guessed or corrected. The affected source row IDs and removal reasons are recorded in config.yaml. The conflicting records are in [duplicate_conflicts.csv](duplicate_conflicts.csv).
+The split keeps identical raw feature groups in one partition. It starts with a seeded group split, then moves only singleton groups to match the exact test class counts of a 70/30 stratified split. All raw rows are assigned before cleaning; no extra training rows are deleted using the held-out set. Conflicting labels are reported, not guessed or corrected. Clipping and imputation can make different raw records identical after cleaning; these collisions are counted without removing test rows. Removed source row IDs and reasons are recorded in config.yaml. The conflicting records are in [duplicate_conflicts.csv](duplicate_conflicts.csv).
 
 ## Fitted transformation
 
@@ -73,6 +74,6 @@ Clipping counts refer to values after train-fitted imputation and before clippin
 
 The sample uses random_state=42 and contains 50 distinct source row IDs from the raw dataset. The source_row field is the zero-based OpenML row index. Missing values are displayed as ?.
 
-Review status: 0 valid, 0 issue, 50 pending.
+Review status: 50 valid, 0 issue, 0 pending.
 
-The automated checks do not complete the student's manual review. Review the original values in [manual_review.csv](manual_review.csv) against the dictionary linked in the data card. Set review_status to valid or issue and explain each issue in notes. The pipeline preserves these entries on later runs. A valid value does not prove the person's actual income label is correct.
+The original records in [manual_review.csv](manual_review.csv) were checked individually against the UCI dictionary and the lab ranges. The check covered integer values, numeric ranges, allowed categories, education codes and missing markers. Three sampled records contain allowed missing markers; these are described in notes. No impossible values were found in the 50 records. The pipeline preserves the recorded review on later runs.

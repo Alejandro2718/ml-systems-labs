@@ -1,0 +1,4 @@
+model,parameters,analytical_matrix_flops,thop_default_ops,thop_adjusted_matrix_macs,thop_adjusted_matrix_flops
+MLP,235146,469504,234752,234752,469504
+CNN,20490,2063488,1031744,1031744,2063488
+Attention,70794,2329856,591488,1164928,2329856

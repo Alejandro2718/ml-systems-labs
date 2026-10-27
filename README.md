@@ -26,3 +26,7 @@ training comparisons, and forward and backward timing.
 Reports:
 - [Lab 1](lab01/report.md)
 - [Lab 2](lab02/report.md)
+- [Lab 3](lab03/report.md)
+
+Lab 3 includes MLP, CNN and attention comparisons on Fashion-MNIST,
+FLOP accounting and CPU latency measurements.

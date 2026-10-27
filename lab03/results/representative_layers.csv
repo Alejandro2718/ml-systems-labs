@@ -1,0 +1,4 @@
+layer,analytical_matrix_flops,thop_matrix_macs,thop_matrix_flops
+Linear 784->256,401408,200704,401408
+Conv 1->16 3x3 28x28,225792,112896,225792
+Self-attention 16 tokens d64 h4,589824,294912,589824

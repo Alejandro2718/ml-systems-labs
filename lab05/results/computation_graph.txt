@@ -1,0 +1,28 @@
+Eager autograd graph (sum of model outputs):
+n0 SumBackward0 -> n1
+n1 SigmoidBackward0 -> n2
+n2 AddmmBackward0 -> n3, n4, n5
+n3 AccumulateGrad -> none leaf shape=(1,), dtype=torch.float64
+n4 ReluBackward0 -> n6
+n5 TBackward0 -> n7
+n6 AddmmBackward0 -> n8, n9, n10
+n7 AccumulateGrad -> none leaf shape=(1, 8), dtype=torch.float64
+n8 AccumulateGrad -> none leaf shape=(8,), dtype=torch.float64
+n9 AccumulateGrad -> none leaf shape=(1, 2), dtype=torch.float64
+n10 TBackward0 -> n11
+n11 AccumulateGrad -> none leaf shape=(8, 2), dtype=torch.float64
+
+Traced forward graph:
+graph(%self.1 : __torch__.models.TorchModel,
+      %x : Double(1, 2, strides=[2, 1], requires_grad=0, device=cpu)):
+  %output : __torch__.torch.nn.modules.linear.___torch_mangle_0.Linear = prim::GetAttr[name="output"](%self.1)
+  %hidden : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="hidden"](%self.1)
+  %bias.1 : Tensor = prim::GetAttr[name="bias"](%hidden)
+  %weight.1 : Tensor = prim::GetAttr[name="weight"](%hidden)
+  %10 : Double(1, 8, strides=[8, 1], requires_grad=0, device=cpu) = aten::linear(%x, %weight.1, %bias.1), scope: __module.hidden # C:\Users\aleja\Desktop\ml-systems-labs\.venv\Lib\site-packages\torch\nn\modules\linear.py:116:0
+  %input : Double(1, 8, strides=[8, 1], requires_grad=0, device=cpu) = aten::relu(%10) # C:\Users\aleja\Desktop\ml-systems-labs\lab05\src\models.py:42:0
+  %bias : Tensor = prim::GetAttr[name="bias"](%output)
+  %weight : Tensor = prim::GetAttr[name="weight"](%output)
+  %13 : Double(1, 1, strides=[1, 1], requires_grad=0, device=cpu) = aten::linear(%input, %weight, %bias), scope: __module.output # C:\Users\aleja\Desktop\ml-systems-labs\.venv\Lib\site-packages\torch\nn\modules\linear.py:116:0
+  %7 : Double(1, 1, strides=[1, 1], requires_grad=0, device=cpu) = aten::sigmoid(%13) # C:\Users\aleja\Desktop\ml-systems-labs\lab05\src\models.py:42:0
+  return (%7)

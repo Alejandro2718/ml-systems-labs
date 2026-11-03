@@ -1,0 +1,11 @@
+tensor,shape,dtype,stride,contiguous,device
+inference_input_batch_1,"(1, 2)",torch.float64,"(2, 1)",True,cpu
+inference_input_batch_128,"(128, 2)",torch.float64,"(2, 1)",True,cpu
+layout_base,"(512, 1024)",torch.float64,"(1024, 1)",True,cpu
+non_contiguous_view,"(512, 512)",torch.float64,"(1024, 2)",False,cpu
+contiguous_copy,"(512, 512)",torch.float64,"(512, 1)",True,cpu
+right_matrix,"(512, 64)",torch.float64,"(64, 1)",True,cpu
+hidden.weight,"(8, 2)",torch.float64,"(2, 1)",True,cpu
+hidden.bias,"(8,)",torch.float64,"(1,)",True,cpu
+output.weight,"(1, 8)",torch.float64,"(8, 1)",True,cpu
+output.bias,"(1,)",torch.float64,"(1,)",True,cpu

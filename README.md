@@ -28,9 +28,13 @@ Reports:
 - [Lab 2](lab02/report.md)
 - [Lab 3](lab03/report.md)
 - [Lab 4](lab04/report.md)
+- [Lab 5](lab05/report.md)
 
 Lab 3 includes MLP, CNN and attention comparisons on Fashion-MNIST,
 FLOP accounting and CPU latency measurements.
 
 Lab 4 includes Adult data validation, training-only preprocessing,
 feature comparisons, a data card and reproducible data hashing.
+
+Lab 5 includes a scalar autograd engine, a PyTorch training comparison,
+graph inspection, traced inference and tensor-layout measurements.

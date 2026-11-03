@@ -1,0 +1,4 @@
+operation,warmups,runs,median_ms,input_shape,output_shape,dtype
+non_contiguous_matmul,1,100,2.1382,"(512, 512)","(512, 64)",float64
+contiguous_matmul,1,100,1.8213499999999998,"(512, 512)","(512, 64)",float64
+copy_then_matmul,1,100,2.14175,"(512, 512)","(512, 64)",float64

@@ -1,0 +1,47 @@
+seed: 42
+threads: 4
+
+model:
+  name: CNN
+
+data:
+  root: data
+  validation_size: 5000
+  num_workers: 0
+  eval_batch_size: 512
+
+training:
+  epochs: 5
+  batch_size: 128
+  optimizer: adam
+  learning_rate: 0.001
+  momentum: 0.9
+  accumulation_steps: 1
+
+scheduler:
+  name: none
+  step_size: 4
+  gamma: 0.1
+  eta_min: 0.0
+  factor: 0.5
+  patience: 1
+
+checkpoint:
+  directory: data/lab06_checkpoints
+
+mlflow:
+  tracking_dir: lab06/mlruns
+  experiment: lab06-training-pipeline
+
+experiments:
+  num_workers: [0, 1, 2, 4, 8]
+  batch_sizes: [32, 64, 128, 256, 512]
+  schedule_epochs: 10
+  optimizers:
+    sgd: 0.01
+    adam: 0.001
+  schedulers: [step, cosine, plateau]
+  accumulation:
+    micro_batch: 64
+    steps: 4
+  interrupt_epoch: 3

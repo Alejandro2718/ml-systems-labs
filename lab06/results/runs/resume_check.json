@@ -1,0 +1,12 @@
+{
+  "name": "resume_check",
+  "study": "resume",
+  "run_id": "6b76a7d15fe2474f8679f604272fe64e",
+  "epochs_completed": 5,
+  "checkpoint": "data\\lab06\\checkpoints\\resume_check.pth",
+  "validation_loss": 0.2877403655767441,
+  "validation_accuracy": 0.8996,
+  "stopped": false,
+  "test_loss": 0.29735092606544494,
+  "test_accuracy": 0.8928
+}

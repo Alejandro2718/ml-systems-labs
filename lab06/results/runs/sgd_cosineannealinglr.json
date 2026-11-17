@@ -1,0 +1,12 @@
+{
+  "name": "sgd_cosineannealinglr",
+  "study": "optimizer_schedule",
+  "run_id": "2675f8742bd14354a674ed3c6b5a4478",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\sgd_cosineannealinglr.pth",
+  "validation_loss": 0.27233915178775786,
+  "validation_accuracy": 0.9026,
+  "stopped": false,
+  "test_loss": 0.2719137475728989,
+  "test_accuracy": 0.904
+}

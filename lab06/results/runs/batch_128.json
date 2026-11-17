@@ -1,0 +1,12 @@
+{
+  "name": "batch_128",
+  "study": "batch_size",
+  "run_id": "5e84ffa0c547459dacabedc0a756fda4",
+  "epochs_completed": 5,
+  "checkpoint": "data\\lab06\\checkpoints\\batch_128.pth",
+  "validation_loss": 0.2877403655767441,
+  "validation_accuracy": 0.8996,
+  "stopped": false,
+  "test_loss": 0.29735092606544494,
+  "test_accuracy": 0.8928
+}

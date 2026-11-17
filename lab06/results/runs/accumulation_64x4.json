@@ -1,0 +1,12 @@
+{
+  "name": "accumulation_64x4",
+  "study": "gradient_accumulation",
+  "run_id": "644d7c4eb794471eb2d68cdc39e4fa66",
+  "epochs_completed": 5,
+  "checkpoint": "data\\lab06\\checkpoints\\accumulation_64x4.pth",
+  "validation_loss": 0.3226353114724159,
+  "validation_accuracy": 0.8866,
+  "stopped": false,
+  "test_loss": 0.32516420254707334,
+  "test_accuracy": 0.8825
+}

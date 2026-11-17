@@ -1,0 +1,12 @@
+{
+  "name": "adam_cosineannealinglr",
+  "study": "optimizer_schedule",
+  "run_id": "4c2fd3875e8843c69fad5a9f1ef8351a",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\adam_cosineannealinglr.pth",
+  "validation_loss": 0.258154980301857,
+  "validation_accuracy": 0.9102,
+  "stopped": false,
+  "test_loss": 0.2696074917078018,
+  "test_accuracy": 0.9028
+}

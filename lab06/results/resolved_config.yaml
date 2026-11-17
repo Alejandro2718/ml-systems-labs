@@ -1,0 +1,58 @@
+seed: 42
+model: CNN
+device: cpu
+threads: 4
+dataset:
+  name: FashionMNIST
+  train_samples: 55000
+  validation_samples: 5000
+  test_samples: 10000
+  normalize_mean: 0.286
+  normalize_std: 0.353
+training:
+  epochs: 5
+  batch_size: 128
+  accumulation_steps: 1
+  num_workers: 2
+  optimizer: Adam
+  learning_rate: 0.001
+  momentum: 0.9
+  weight_decay: 0.0
+  scheduler: StepLR
+  step_size: 3
+  gamma: 0.5
+  cosine_min_lr: 1.0e-05
+  plateau_patience: 1
+  memory_sample_seconds: 0.01
+studies:
+  workers:
+  - 0
+  - 1
+  - 2
+  - 4
+  - 8
+  worker_runs: 5
+  worker_batches: 100
+  batch_sizes:
+  - 32
+  - 64
+  - 128
+  - 256
+  - 512
+  batch_epochs: 5
+  schedulers:
+  - StepLR
+  - CosineAnnealingLR
+  - ReduceLROnPlateau
+  optimizers:
+    SGD: 0.01
+    Adam: 0.001
+  schedule_epochs: 10
+  accumulation_batch: 64
+  accumulation_steps: 4
+  accumulation_reference_batch: 256
+  accumulation_accuracy_tolerance: 0.01
+  accumulation_loss_tolerance: 0.03
+  interrupt_epoch: 3
+tracking:
+  experiment: Lab06-FashionMNIST

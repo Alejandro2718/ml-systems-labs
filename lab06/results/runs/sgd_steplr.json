@@ -1,0 +1,12 @@
+{
+  "name": "sgd_steplr",
+  "study": "optimizer_schedule",
+  "run_id": "b857ab07634f441aaa2e0a76926d5741",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\sgd_steplr.pth",
+  "validation_loss": 0.2752987015068531,
+  "validation_accuracy": 0.9018,
+  "stopped": false,
+  "test_loss": 0.2743416523218155,
+  "test_accuracy": 0.9035
+}

@@ -1,0 +1,12 @@
+{
+  "name": "adam_steplr",
+  "study": "optimizer_schedule",
+  "run_id": "77682b0f6a2e4ae5b2af5198e818a799",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\adam_steplr.pth",
+  "validation_loss": 0.262031603884697,
+  "validation_accuracy": 0.909,
+  "stopped": false,
+  "test_loss": 0.2724938426733017,
+  "test_accuracy": 0.9016
+}

@@ -1,0 +1,2 @@
+name,run_id,batch_size,accumulation_steps,num_workers,optimizer,scheduler,learning_rate,epochs,median_throughput_samples_s,peak_parent_rss_mb,peak_tree_rss_mb,validation_loss,validation_accuracy,test_loss,test_accuracy
+accumulation_64x4,644d7c4eb794471eb2d68cdc39e4fa66,64,4,2,Adam,StepLR,0.001,5,3544.989670167953,438.902784,1061.609472,0.3226353114724159,0.8866,0.32516420254707334,0.8825

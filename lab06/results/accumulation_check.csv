@@ -1,0 +1,2 @@
+maximum_single_update_gradient_difference,accuracy_tolerance,loss_tolerance,passed
+3.725290298461914e-08,0.01,0.03,True

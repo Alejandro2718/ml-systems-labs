@@ -1,0 +1,12 @@
+{
+  "name": "sgd_reducelronplateau",
+  "study": "optimizer_schedule",
+  "run_id": "225c277696194bd1af5b00102c94742f",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\sgd_reducelronplateau.pth",
+  "validation_loss": 0.26833065128028394,
+  "validation_accuracy": 0.8984,
+  "stopped": false,
+  "test_loss": 0.2742441853284836,
+  "test_accuracy": 0.9038
+}

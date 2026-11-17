@@ -29,6 +29,7 @@ Reports:
 - [Lab 3](lab03/report.md)
 - [Lab 4](lab04/report.md)
 - [Lab 5](lab05/report.md)
+- [Lab 6](lab06/report.md)
 
 Lab 3 includes MLP, CNN and attention comparisons on Fashion-MNIST,
 FLOP accounting and CPU latency measurements.
@@ -38,3 +39,6 @@ feature comparisons, a data card and reproducible data hashing.
 
 Lab 5 includes a scalar autograd engine, a PyTorch training comparison,
 graph inspection, traced inference and tensor-layout measurements.
+
+Lab 6 includes YAML-driven training, MLflow runs, profiling, loading and
+optimization studies, checkpoint recovery and an individual project proposal.

@@ -1,0 +1,91 @@
+operator,calls,self_cpu_ms,total_cpu_ms
+aten::empty,5175,44.027,285.028
+aten::fill_,19378,405.53,405.53
+aten::set_,868,5.259,5.259
+aten::randperm,2,1.484,3.038
+aten::scalar_tensor,1,0.021,0.022
+aten::resize_,3012,2.797,2.797
+aten::resolve_conj,3011,0.033,0.033
+aten::resolve_neg,1,0.0,0.0
+data_loading,430,149.224,440.866
+enumerate(DataLoader)#_MultiProcessingDataLoaderIter.__next__,430,277.371,291.642
+Optimizer.zero_grad#Adam.zero_grad,430,25.221,25.221
+forward_pass,430,221.009,6526.23
+aten::conv2d,860,7.656,1529.65
+aten::convolution,860,23.762,1521.994
+aten::_convolution,860,13.661,1498.232
+aten::mkldnn_convolution,860,1281.601,1484.571
+aten::as_strided_,3010,13.439,13.439
+aten::relu,860,20.851,526.704
+aten::clamp_min,860,505.853,505.853
+aten::max_pool2d,860,6.433,3946.457
+aten::max_pool2d_with_indices,860,3940.024,3940.024
+aten::flatten,430,3.383,9.202
+aten::view,1290,8.718,8.718
+aten::linear,430,3.627,201.889
+aten::t,2150,17.01,29.175
+aten::transpose,2150,8.13,12.084
+aten::as_strided,3440,5.577,5.577
+aten::addmm,430,178.452,189.291
+aten::expand,430,2.558,3.082
+aten::copy_,12040,43.417,43.417
+aten::cross_entropy_loss,430,6.56,70.818
+aten::log_softmax,430,5.212,51.111
+aten::to,12046,30.295,181.439
+aten::_log_softmax,430,45.64,45.64
+aten::nll_loss_nd,430,2.381,13.152
+aten::nll_loss,430,2.581,10.834
+aten::nll_loss_forward,430,8.306,8.306
+aten::div,3440,47.093,112.501
+aten::_to_copy,11610,79.816,156.315
+aten::empty_strided,12052,42.162,44.242
+backward_pass,430,225.243,5302.433
+aten::ones_like,430,2.448,7.711
+aten::empty_like,442,2.836,5.377
+autograd::engine::evaluate_function: DivBackward0,430,3.884,20.055
+DivBackward0,430,2.6,16.171
+autograd::engine::evaluate_function: NllLossBackward0,430,6.026,29.605
+NllLossBackward0,430,3.214,23.579
+aten::nll_loss_backward,430,19.842,20.365
+aten::zero_,1302,4.908,165.21
+autograd::engine::evaluate_function: LogSoftmaxBackward0,430,5.005,31.63
+LogSoftmaxBackward0,430,4.55,26.625
+aten::_log_softmax_backward_data,430,22.075,22.075
+autograd::engine::evaluate_function: AddmmBackward0,430,12.434,224.715
+AddmmBackward0,430,14.436,198.407
+aten::mm,860,166.776,166.801
+aten::sum,860,19.517,31.017
+autograd::engine::evaluate_function: torch::autograd::AccumulateGrad,2580,10.041,35.452
+torch::autograd::AccumulateGrad,2580,11.727,25.727
+aten::detach,2580,7.525,13.68
+detach,2580,6.517,6.517
+autograd::engine::evaluate_function: TBackward0,430,2.739,6.897
+TBackward0,430,1.124,4.091
+autograd::engine::evaluate_function: ViewBackward0,430,1.425,5.151
+ViewBackward0,430,1.556,3.651
+aten::reshape,430,1.058,2.139
+autograd::engine::evaluate_function: MaxPool2DWithIndicesBackward0,860,17.829,429.733
+MaxPool2DWithIndicesBackward0,860,6.98,411.904
+aten::max_pool2d_with_indices_backward,860,239.989,404.924
+autograd::engine::evaluate_function: ReluBackward0,860,14.185,2081.69
+ReluBackward0,860,11.724,2067.505
+aten::threshold_backward,860,2055.781,2055.781
+autograd::engine::evaluate_function: ConvolutionBackward0,860,16.631,2204.193
+ConvolutionBackward0,860,7.926,2187.562
+aten::convolution_backward,860,2091.64,2179.636
+optimizer_step,430,26.659,943.267
+Optimizer.step#Adam.step,430,303.701,916.608
+aten::lift_fresh,6,0.0,0.0
+aten::detach_,6,0.011,0.013
+detach_,6,0.002,0.002
+aten::zeros_like,12,0.05,0.175
+aten::add_,5160,45.482,121.218
+aten::lerp_,2580,122.413,122.413
+aten::mul_,2580,34.407,70.981
+aten::addcmul_,2580,33.796,33.796
+aten::item,3440,9.188,11.95
+aten::_local_scalar_dense,3440,2.991,2.991
+aten::sqrt,2580,132.519,132.519
+aten::addcdiv_,2580,43.362,43.362
+aten::argmax,430,20.348,21.14
+aten::eq,430,3.646,3.646

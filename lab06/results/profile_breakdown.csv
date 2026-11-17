@@ -1,0 +1,6 @@
+stage,milliseconds,percent_epoch_wall
+data_loading,440.866,3.21254910146229
+forward_pass,6526.23,47.55602455720387
+backward_pass,5302.433,38.63833085271714
+optimizer_step,943.267,6.873497963755495
+other_and_profiler_overhead,510.4494999466442,3.719597524861221

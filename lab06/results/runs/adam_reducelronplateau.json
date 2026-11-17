@@ -1,0 +1,12 @@
+{
+  "name": "adam_reducelronplateau",
+  "study": "optimizer_schedule",
+  "run_id": "95f9b2ee1f3c4626a436731aa548e2bc",
+  "epochs_completed": 10,
+  "checkpoint": "data\\lab06\\checkpoints\\adam_reducelronplateau.pth",
+  "validation_loss": 0.2543024088263512,
+  "validation_accuracy": 0.9106,
+  "stopped": false,
+  "test_loss": 0.2692533198595047,
+  "test_accuracy": 0.9031
+}

@@ -1,0 +1,2 @@
+model,parameters,macs_per_image,epochs,validation_accuracy,test_loss,test_accuracy,training_seconds,dense_bytes,dense_gzip_bytes,sparse_csr_bytes,batch1_median_ms,batch1_p95_ms,batch128_median_ms,batch128_p95_ms
+baseline_cnn,997434,30031776,10,0.9364,0.2167184955596924,0.9313,928.1236604000442,3992888,3708700,11975002,1.192,1.315195,63.92255,64.37855

@@ -30,6 +30,9 @@ Reports:
 - [Lab 4](lab04/report.md)
 - [Lab 5](lab05/report.md)
 - [Lab 6](lab06/report.md)
+- [Lab 7](lab07/report.md)
+- [Lab 8](lab08/report.md)
+- [Project](project/README.md)
 
 Lab 3 includes MLP, CNN and attention comparisons on Fashion-MNIST,
 FLOP accounting and CPU latency measurements.
@@ -42,3 +45,9 @@ graph inspection, traced inference and tensor-layout measurements.
 
 Lab 6 includes YAML-driven training, MLflow runs, profiling, loading and
 optimization studies, checkpoint recovery and an individual project proposal.
+
+Lab 7 includes magnitude and filter pruning, sparse storage and kernel
+measurements, knowledge distillation and an efficiency summary.
+
+Lab 8 includes manual and PyTorch INT8 quantization, calibration studies,
+ONNX export, deployment recommendations and the project milestone.

@@ -1,0 +1,156 @@
+{
+  "project": "Local SMS Spam Classification",
+  "milestone": "Lab 8 baseline",
+  "dataset": {
+    "raw_rows": 5574,
+    "exact_duplicate_rows": 403,
+    "duplicate_text_rows": 403,
+    "conflicting_texts": 0,
+    "conflicting_rows": 0,
+    "rows_after_deduplication": 5171,
+    "file_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+    "split_sha256": {
+      "train": "31b94816d0b1006e7e58942caa4bd686e4531ab1660e1639d9be8762481bbe99",
+      "validation": "132c391bc33d1055603fc5a4a7da57e22e7ece83125980c066114d4ed64a7eb0",
+      "test": "523da3bbbdc4b704faf3d461bf65a812f7ae4a4453dc50b72c52cfb3b68f7304"
+    },
+    "split_rows": {
+      "train": 3619,
+      "validation": 776,
+      "test": 776
+    },
+    "split_spam": {
+      "train": 457,
+      "validation": 98,
+      "test": 98
+    },
+    "spam_rows_raw": 747
+  },
+  "environment": {
+    "python": "3.11.8",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "torch_threads": 1,
+    "packages": {
+      "torch": "2.3.1",
+      "scikit-learn": "1.5.0",
+      "numpy": "1.26.4",
+      "mlflow": "2.14.1"
+    }
+  },
+  "models": {
+    "logistic_regression": {
+      "model": "TF-IDF + Logistic Regression",
+      "validation": {
+        "threshold": 0.31,
+        "spam_f1": 0.9263157894736842,
+        "spam_precision": 0.9565217391304348,
+        "spam_recall": 0.8979591836734694,
+        "accuracy": 0.9819587628865979,
+        "confusion_matrix": {
+          "true_ham": [
+            674,
+            4
+          ],
+          "true_spam": [
+            10,
+            88
+          ]
+        }
+      },
+      "test": {
+        "threshold": 0.31,
+        "spam_f1": 0.9239130434782609,
+        "spam_precision": 0.9883720930232558,
+        "spam_recall": 0.8673469387755102,
+        "accuracy": 0.9819587628865979,
+        "confusion_matrix": {
+          "true_ham": [
+            677,
+            1
+          ],
+          "true_spam": [
+            13,
+            85
+          ]
+        }
+      },
+      "latency_batch1": {
+        "median_ms": 0.66745,
+        "p95_ms": 0.9259499999999999,
+        "max_ms": 3.2202,
+        "messages": 776
+      },
+      "artifact_bytes": 85001
+    },
+    "neural_fp32": {
+      "model": "TF-IDF + MLP (FP32)",
+      "parameters": 160065,
+      "best_epoch": 23,
+      "training_seconds": 17.118108400027268,
+      "validation": {
+        "threshold": 0.64,
+        "spam_f1": 0.9523809523809523,
+        "spam_precision": 0.989010989010989,
+        "spam_recall": 0.9183673469387755,
+        "accuracy": 0.9884020618556701,
+        "confusion_matrix": {
+          "true_ham": [
+            677,
+            1
+          ],
+          "true_spam": [
+            8,
+            90
+          ]
+        }
+      },
+      "test": {
+        "threshold": 0.64,
+        "spam_f1": 0.9518716577540107,
+        "spam_precision": 1.0,
+        "spam_recall": 0.9081632653061225,
+        "accuracy": 0.9884020618556701,
+        "confusion_matrix": {
+          "true_ham": [
+            678,
+            0
+          ],
+          "true_spam": [
+            9,
+            89
+          ]
+        }
+      },
+      "latency_batch1": {
+        "median_ms": 0.81355,
+        "p95_ms": 0.983275,
+        "max_ms": 2.2425,
+        "messages": 776
+      },
+      "load_ms_median": 81.64079999551177,
+      "artifact_bytes": {
+        "vectorizer.joblib": 47718,
+        "model_fp32.pt": 642344,
+        "metadata.json": 205
+      },
+      "total_artifact_bytes": 690267
+    }
+  },
+  "targets": {
+    "spam_f1": 0.9,
+    "p95_latency_ms": 50,
+    "artifact_megabytes": 5,
+    "quantization_f1_loss": 0.01
+  },
+  "fp32_targets_met": {
+    "spam_f1": true,
+    "p95_latency": true,
+    "artifact_size": true
+  },
+  "notes": [
+    "Thresholds were selected on validation F1; the test split was evaluated once.",
+    "Latency covers TF-IDF transform, model forward pass and threshold for one message.",
+    "Artifact loading is excluded from latency and reported as load_ms_median."
+  ],
+  "mlflow_run_id": "91a7380183984014b0ab8ebca719d54c"
+}

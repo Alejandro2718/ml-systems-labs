@@ -1,0 +1,11 @@
+{
+  "labels": [
+    "ham",
+    "spam"
+  ],
+  "positive_label": "spam",
+  "threshold": 0.64,
+  "input_features": 5000,
+  "hidden": 32,
+  "vectorizer": "TF-IDF, fitted on the training split only"
+}

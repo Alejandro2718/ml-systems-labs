@@ -1,0 +1,8 @@
+bits,granularity,test_accuracy
+32,fp32,0.9313
+8,per_tensor,0.9314
+8,per_channel,0.9315
+4,per_tensor,0.9292
+4,per_channel,0.9329
+2,per_tensor,0.1042
+2,per_channel,0.4158

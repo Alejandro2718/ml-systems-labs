@@ -1,0 +1,10 @@
+variant,source_model,method,backend,calibration,test_accuracy,state_dict_bytes,batch1_median_ms,batch1_p95_ms,batch128_median_ms,batch128_p95_ms
+baseline,baseline,fp32,,,0.9313,3992888,1.88365,2.169885,103.05834999999999,105.58399
+pruned,filters_50,fp32,,,0.9313,1909048,1.1249,1.229915,40.89195,42.35832
+distilled,student_distilled,fp32,,,0.9111,400960,0.4561,0.618385,15.99715,16.734560000000002
+dynamic_quant,baseline,dynamic_int8_linear,fbgemm,,0.9313,1280620,2.04665,2.4036850000000003,92.26400000000001,103.823215
+static_quant,baseline,static_int8,fbgemm,random_training_500,0.9313,1014384,0.98285,1.39473,34.7284,36.06858999999999
+pruned_dynamic_quant,filters_50,dynamic_int8_linear,fbgemm,,0.9317,551532,1.22525,1.3602450000000001,40.2333,41.923354999999994
+pruned_static_quant,filters_50,static_int8,fbgemm,random_training_500,0.9308,491312,0.96645,1.0513649999999999,17.94625,20.743325
+distilled_dynamic_quant,student_distilled,dynamic_int8_linear,fbgemm,,0.9114,118322,0.7501,1.000135,14.71145,15.613294999999999
+distilled_static_quant,student_distilled,static_int8,fbgemm,random_training_500,0.9108,109826,0.86055,1.6065600000000002,9.000599999999999,9.54877

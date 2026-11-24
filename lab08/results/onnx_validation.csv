@@ -1,0 +1,3 @@
+model,source,opset,onnxruntime,provider,threads,onnx_bytes,test_images,max_abs_logit_difference,tolerance,within_tolerance,prediction_agreement,pytorch_test_accuracy,onnx_test_accuracy,pytorch_batch1_median_ms,onnx_batch1_median_ms,onnx_batch1_p95_ms,pytorch_batch128_median_ms,onnx_batch128_median_ms,onnx_batch128_p95_ms
+baseline,baseline,17,1.18.0,CPUExecutionProvider,4,3991418,10000,1.52587890625e-05,0.0001,True,1.0,0.9313,0.9313,1.9835,0.5129999999999999,0.61581,94.26015,59.9164,60.307145
+distilled,student_distilled,17,1.18.0,CPUExecutionProvider,4,399592,10000,1.1444091796875e-05,0.0001,True,1.0,0.9111,0.9111,0.43635,0.0748,0.08632500000000001,15.888950000000001,2.4303,2.4588900000000002
